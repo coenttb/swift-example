@@ -1,5 +1,6 @@
 import Example
 import Example_Counter
+import Tagged
 import Testing
 
 @Suite

@@ -25,6 +25,9 @@ let package = Package(
             targets: ["Example Counter"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-tagged.git", branch: "main"),
+    ],
     targets: [
         .target(
             name: "Example"
@@ -32,13 +35,15 @@ let package = Package(
         .target(
             name: "Example Greeting",
             dependencies: [
-                "Example"
+                "Example",
+                .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
         .target(
             name: "Example Counter",
             dependencies: [
-                "Example"
+                "Example",
+                .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
         .testTarget(
@@ -46,6 +51,7 @@ let package = Package(
             dependencies: [
                 "Example",
                 "Example Greeting",
+                .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
         .testTarget(
@@ -53,6 +59,7 @@ let package = Package(
             dependencies: [
                 "Example",
                 "Example Counter",
+                .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
     ],

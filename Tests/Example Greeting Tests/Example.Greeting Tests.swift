@@ -1,5 +1,6 @@
 import Example
 import Example_Greeting
+import Tagged
 import Testing
 
 @Suite

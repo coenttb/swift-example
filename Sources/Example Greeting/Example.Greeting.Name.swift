@@ -1,13 +1,9 @@
 public import Example
+public import Tagged
 
 extension Example.Greeting {
 
-    public struct Name: Equatable, Sendable {
+    public enum Nominal {}
 
-        public let underlying: Swift.String
-
-        public init(_ underlying: Swift.String) {
-            self.underlying = underlying
-        }
-    }
+    public typealias Name = Tagged<Nominal, Swift.String>
 }

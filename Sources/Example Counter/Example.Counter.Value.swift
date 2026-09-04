@@ -1,13 +1,9 @@
 public import Example
+public import Tagged
 
 extension Example.Counter {
 
-    public struct Value: Equatable, Sendable {
+    public enum Quantity {}
 
-        public let underlying: Swift.Int
-
-        public init(_ underlying: Swift.Int) {
-            self.underlying = underlying
-        }
-    }
+    public typealias Value = Tagged<Quantity, Swift.Int>
 }
