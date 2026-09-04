@@ -52,6 +52,7 @@ let package = Package(
                 "Example",
                 "Example Greeting",
                 .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Tagged Standard Library Integration", package: "swift-tagged"),
             ]
         ),
         .testTarget(
@@ -60,6 +61,7 @@ let package = Package(
                 "Example",
                 "Example Counter",
                 .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Tagged Standard Library Integration", package: "swift-tagged"),
             ]
         ),
     ],

@@ -1,6 +1,7 @@
 import Example
 import Example_Counter
 import Tagged
+import Tagged_Standard_Library_Integration
 import Testing
 
 @Suite
@@ -8,16 +9,16 @@ struct `Example.Counter Tests` {
 
     @Test
     func `increment below the limit succeeds`() throws {
-        #expect(try Example.Counter.increment(.init(3), limit: .init(5)) == .init(4))
+        #expect(try Example.Counter.increment(3, limit: 5) == 4)
     }
 
     @Test
     func `increment at the limit refuses`() {
         do throws(Example.Counter.Error) {
-            _ = try Example.Counter.increment(.init(5), limit: .init(5))
+            _ = try Example.Counter.increment(5, limit: 5)
             Issue.record("expected a refusal")
         } catch {
-            #expect(error == .limit(reached: .init(5)))
+            #expect(error == .limit(reached: 5))
         }
     }
 }
