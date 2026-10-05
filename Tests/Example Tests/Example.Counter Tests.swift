@@ -1,7 +1,5 @@
 import Example
-import Example_Counter
 import Tagged
-import Tagged_Standard_Library_Integration
 import Testing
 
 @Suite

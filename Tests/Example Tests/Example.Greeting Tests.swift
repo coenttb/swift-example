@@ -1,7 +1,5 @@
 import Example
-import Example_Greeting
 import Tagged
-import Tagged_Standard_Library_Integration
 import Testing
 
 @Suite

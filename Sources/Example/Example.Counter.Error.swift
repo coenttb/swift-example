@@ -1,4 +1,3 @@
-public import Example
 
 extension Example.Counter {
 

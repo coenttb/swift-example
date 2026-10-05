@@ -16,52 +16,28 @@ let package = Package(
             name: "Example",
             targets: ["Example"]
         ),
-        .library(
-            name: "Example Greeting",
-            targets: ["Example Greeting"]
-        ),
-        .library(
-            name: "Example Counter",
-            targets: ["Example Counter"]
-        ),
     ],
     dependencies: [
         .package(url: "https://github.com/swift-atoms/swift-tagged.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-interface.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-client.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-either.git", branch: "main"),
     ],
     targets: [
         .target(
-            name: "Example"
-        ),
-        .target(
-            name: "Example Greeting",
+            name: "Example",
             dependencies: [
-                "Example",
                 .product(name: "Tagged", package: "swift-tagged"),
-            ]
-        ),
-        .target(
-            name: "Example Counter",
-            dependencies: [
-                "Example",
-                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Interface Macro", package: "swift-interface"),
+                .product(name: "Client Macro", package: "swift-client"),
             ]
         ),
         .testTarget(
-            name: "Example Greeting Tests",
+            name: "Example Tests",
             dependencies: [
                 "Example",
-                "Example Greeting",
+                .product(name: "Either", package: "swift-either"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Tagged Standard Library Integration", package: "swift-tagged"),
-            ]
-        ),
-        .testTarget(
-            name: "Example Counter Tests",
-            dependencies: [
-                "Example",
-                "Example Counter",
-                .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Tagged Standard Library Integration", package: "swift-tagged"),
             ]
         ),
     ],
