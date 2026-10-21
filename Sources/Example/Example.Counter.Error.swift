@@ -1,7 +1,6 @@
-
 extension Example.Counter {
 
-    public enum Error: Swift.Error, Equatable {
+    public enum Error: Swift::Error, Equatable {
 
         case limit(reached: Limit)
     }

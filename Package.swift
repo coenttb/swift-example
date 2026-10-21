@@ -15,7 +15,7 @@ let package = Package(
         .library(
             name: "Example",
             targets: ["Example"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/swift-atoms/swift-tagged.git", branch: "main"),
@@ -35,7 +35,7 @@ let package = Package(
         .testTarget(
             name: "Example Tests",
             dependencies: [
-                "Example",
+                .target(name: "Example"),
                 .product(name: "Either", package: "swift-either"),
                 .product(name: "Tagged", package: "swift-tagged"),
             ]
@@ -45,13 +45,15 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    target.swiftSettings = (target.swiftSettings ?? []) + [
-        .strictMemorySafety(),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableExperimentalFeature("Lifetimes"),
-        .enableUpcomingFeature("InferIsolatedConformances"),
-    ]
+    target.swiftSettings =
+        (target.swiftSettings ?? []) + [
+            .strictMemorySafety(),
+            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("InternalImportsByDefault"),
+            .enableUpcomingFeature("MemberImportVisibility"),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances"),
+            .enableExperimentalFeature("Lifetimes"),
+            .treatAllWarnings(as: .error),
+        ]
 }

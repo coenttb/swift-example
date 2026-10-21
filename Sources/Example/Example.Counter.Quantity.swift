@@ -4,5 +4,5 @@ extension Example.Counter {
 
     public enum Quantity {}
 
-    public typealias Value = Tagged<Quantity, Swift.Int>
+    public typealias Value = Tagged<Quantity, Swift::Int>
 }

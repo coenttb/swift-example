@@ -4,5 +4,5 @@ extension Example.Greeting {
 
     public enum Utterance {}
 
-    public typealias Message = Tagged<Utterance, Swift.String>
+    public typealias Message = Tagged<Utterance, Swift::String>
 }
