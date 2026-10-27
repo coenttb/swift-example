@@ -19,8 +19,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-atoms/swift-tagged.git", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-interface.git", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-client.git", branch: "main"),
+        .package(url: "https://github.com/coenttb/swift-interface.git", branch: "main"),
+        .package(url: "https://github.com/coenttb/swift-client.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-either.git", branch: "main"),
     ],
     targets: [
